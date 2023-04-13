@@ -14,8 +14,8 @@
       <textarea 
       [(ngModel)]="tweetMessage"
       (input)="changeTweet()"
-      [maxLength]="tweetMaxLength" class="mb-2 bg-gray-200 focus:outline-none focus:shadow-outline focus:gb-gray-100 border border-transparent rounded-lg py-2 px-4 block w-full appearance-none font-light placeholder-gray-700 resize-none" placeholder="What's happening..."
-            rows="3"></textarea>
+      [maxLength]="tweetMaxLength" class="mb-2 bg-gray-200 focus:outline-none focus:shadow-outline focus:gb-gray-100 border border-transparent rounded-lg py-2 px-4 block w-full appearance-none font-light placeholder-gray-700 resize-none" placeholder="O que está acontecendo?"
+            rows="5"></textarea>
             
             <!-- divider line -->
             <div class="w-auto border rounded-lg"></div>
@@ -29,7 +29,14 @@
                 </div>
                 <!-- button -->
                 <div class="mt-5">
-                    <button (click)="sendTweet()" type="button" class="bg-blue-500 w-32 focus:outline-none border border-transparent py-2 px-5 rounded-lg hover:bg-blue-600 font-medium text-white shadow text-center">Tweet</button>
+                    <button [disabled]="!tweetMessage"
+                    [ngClass]="{'bg-blue-500 hover:bg-blue-600': tweetMessage, 'bg-blue-300': !tweetMessage }"
+                     (click)="sendTweet()" 
+                     type="button" 
+                     class=" w-32 
+                     focus:outline-none border
+                      border-transparent py-2 
+                      px-2 rounded-full  font-medium text-white shadow text-center">Tweetar</button>
                 </div>
             </div>
 
