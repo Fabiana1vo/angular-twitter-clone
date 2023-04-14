@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {  FormsModule } from '@angular/forms'
-
+import {  FormsModule } from '@angular/forms';
+ 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PostComponent } from './components/post/post.component';
@@ -11,8 +11,11 @@ import { TweetComponent } from './components/tweet/tweet.component';
 import { PagesComponent } from './components/pages/pages.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { MessagesService } from './Services/messages.service';
+import { AvatarComponent } from './components/avatar/avatar.component';
 
-@NgModule({
+
+ @NgModule({
   declarations: [
     AppComponent,
     PostComponent,
@@ -21,14 +24,17 @@ import { FooterComponent } from './components/footer/footer.component';
     TweetComponent,
     PagesComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    AvatarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    MessagesService
+  ],  //servicos que estao provendo algo, precisam ser importadas
   bootstrap: [AppComponent]
 })
 export class AppModule { }
